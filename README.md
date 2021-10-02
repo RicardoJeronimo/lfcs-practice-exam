@@ -27,7 +27,7 @@ The script creates files to be used for the exercises at the end in comments:
 20. change the ACL on file ./playground/testacl.txt to give read privilege to user1, write privilege to user2
 
 ## Groups and users
-22. create a group grp1, then add user1, user2, user3 to this group all in one command (`man gpasswd`)
+21. create a group grp1, then add user1, user2, user3 to this group all in one command (`man gpasswd`)
 23. make a directory ./playground/grp1dir owned by grp1 and activate the getuid bit on it. Check the getuid bit by creating a file in the directory
 24. remove user2 from group grp1, add it again with a different command than previously (`usermod`)
 25. run ./playground/testsetuid.out as user1, then as user2. Set the setuid to 1 and then run it again as user2
