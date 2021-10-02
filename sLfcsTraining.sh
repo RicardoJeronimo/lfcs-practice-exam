@@ -39,7 +39,7 @@ do
                     do
                         #echo "Creating file ${user}_file${i}_suga${perm1}${perm2}${perm3}${perm4}.txt"
                         echo ${user}file${i}s${perm1}u${perm2}g${perm3}a${perm4} > ${user}_file${i}_suga${perm1}${perm2}${perm3}${perm4}.txt
-			    #echo "${perm1}${perm2}${perm3}${perm4} ${user}_file${i}_suga${perm1}${perm2}${perm3}${perm4}.txt"
+                        #echo "${perm1}${perm2}${perm3}${perm4} ${user}_file${i}_suga${perm1}${perm2}${perm3}${perm4}.txt"
                         chmod ${perm1}${perm2}${perm3}${perm4} ./${user}_file${i}_suga${perm1}${perm2}${perm3}${perm4}.txt
                         chown $user:$user ${user}_file${i}_suga${perm1}${perm2}${perm3}${perm4}.txt
 			ls -aFhl ${user}_file${i}_suga${perm1}${perm2}${perm3}${perm4}.txt
