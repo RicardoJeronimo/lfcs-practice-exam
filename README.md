@@ -18,7 +18,7 @@ The script creates files to be used for the exercises at the end in comments:
 11. move all the files in _./playground/filepool_ with spaces in their name in _./playground/filenameswithspaces_, keeping ownership, with the `rsync --remove-source-files` command only (`find ... -exec rsync -v -o -g ...`). Copy them back to _./playground/filepool_ with the `find | xargs` commands keeping the ownership too (`find ... -print0 | xargs -0 -I{} cp -a {} ...`)
 12. find all the files in _./playground/filepool_ with no user, write the result in _./playground/listfile.txt_
 13. keeping the ownership, copy the files from **user2** in _./playground/filepool_ to _./playground/user2_ which have permission 1246
-14. compare the directories _./playground/user2_ and _./playground/user2ref_
+14. compare the directories _./playground/user2_ and _./playground/user2ref_ (`diff -q`)
 15. find all the files in _./playground/filepool_ owned by **user3** and newer than _./playground/filepool/user3_file2_suga0000.txt_
 16. make the list of all the files in _./playground/filepool_ owned by user3 and overwrite the file _./playground/user1ref/fileadded.txt_ with the list (check the `lsattr` attributes)
 17. find all the files in _./playground/filepool_ owned by **user3** which are executable by somebody (their owner, or their group, or anybody else)
