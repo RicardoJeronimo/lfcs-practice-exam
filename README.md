@@ -45,8 +45,8 @@ The script creates files to be used for the exercises at the end in comments:
 37. add quotas to the xfs partition for user1, check the quotas with `dd` (`man xfs_quota`)
 
 ## Networking
-35. run an http local website **mysite.com** at _/var/www/mysite/index.html_ on port 54321 (changes in _/etc/hosts_, _/etc/apache2/apache2.conf_, _/etc/apache2/ports.conf_, _/etc/apache2/sites-available/mysite_, and _/etc/apache2/sites-enabled/mysite_ symlink. See for example https://youtu.be/KP5F1Leu8S8). Check with `lynx -dump localhost:54321` and `lynx -dump mysite.com`
-40. run a docker http website on port 12345 at _~/html/docker/index.html_ (`docker run -dti --name ? -p ??:80 -v ??:/usr/local/apache2/htdocs/ httpd`). Delete the container and create the same one with a restart policy ('--restart' in `man docker-run`). Check with `lynx`
+35. run an http local website **mysite.com** at _/var/www/mysite/index.html_ on **port 54321** (changes in _/etc/hosts_, _/etc/apache2/apache2.conf_, _/etc/apache2/ports.conf_, _/etc/apache2/sites-available/mysite_, and _/etc/apache2/sites-enabled/mysite_ symlink. See for example https://youtu.be/KP5F1Leu8S8). Check with `lynx -dump localhost:54321` and `lynx -dump mysite.com`
+40. run a docker http website on **port 12345** at _~/html/docker/index.html_ (`docker run -dti --name ? -p ??:80 -v ??:/usr/local/apache2/htdocs/ httpd`). Delete the container and create the same one with a restart policy ('--restart' in `man docker-run`). Check with `lynx`
 41. download an **Alpine iso** image with `wget`, run a virtual machine with command `virt-install` and the iso (examples at the end of the man page. Here is one: `virt-install --name tiny --connect qemu:///session --disk size=1 --cdrom alpine-standard-3.14.2-x86.iso`), clone it with `virt-clone`, list it with `virsh`, stop it with `virsh`, start it again, destroy it, list it again, and undefine it (look at 'undefine' in `man virsh`)
 
 ## End. Repeat until done in less than 1 hour
