@@ -27,22 +27,22 @@ The script creates files to be used for the exercises at the end in comments:
 20. change the ACL on file _./playground/testacl.txt_ to give read privilege to **user1**, write privilege to **user2**
 
 ## Groups and users
-21. create a group grp1, then add user1, user2, user3 to this group all in one command (`man gpasswd`)
-23. make a directory ./playground/grp1dir owned by grp1 and activate the getuid bit on it. Check the getuid bit by creating a file in the directory
-24. remove user2 from group grp1, add it again with a different command than previously (`usermod`)
-25. run ./playground/testsetuid.out as user1, then as user2. Set the setuid to 1 and then run it again as user2
-26. remove the execution privileges on file ./playground/testsetuid.out to all users. Change the ACL on file ./playground/testsetuid.out to give execution privilege to grp1, and then execute it with user3
+21. create a group **grp1**, then add **user1**, **user2**, **user3** to this group all in one command (`man gpasswd`)
+23. make a directory _./playground/grp1dir_ owned by **grp1** and activate the **getuid** bit on it. Check the **getuid** bit by creating a file in the directory
+24. remove **user2** from group **grp1**, add it again with a different command than previously (`usermod`)
+25. run _./playground/testsetuid.out_ as **user1**, then as **user2**. Set the **setuid** to 1 and then run it again as **user2**
+26. remove the execution privileges on file _./playground/testsetuid.out_ to all users. Change the ACL on file _./playground/testsetuid.out_ to give execution privilege to **grp1**, and then execute it with **user3**
 
 ## System
-26. search in /var/log for the user who tried the 'sudo' command without permission
-30. grant user1 with root privileges with no password, and add user2 to the sudoers group
-31. set the number of processes user3 can run to infinity
-32. switch the system to start at runlevel 3 (multi-user.target in systemd), then switch back to runlevel 5 (graphical.target). WARNING: NEVER 0 or 6
-33. create a service myservice from scratch that writes the date and time in /tmp/myservice.txt both when it starts and when it stops (maybe `sleep 5` in between)
-34. create an ext4 partition on a loop file image, set a label, mount it manually, and mount it automatically in /etc/fstab with the label (`dd if=/dev/zero of=imgfile bs=1M count=100 ; losetup -f ; losetup /dev/loopX imgfile ; mkfs.ext4 /dev/loopX ; man tune2fs`)
-35. add quotas to the ext4 partition for user1, check the quotas with `dd ... of=somefileX` (`man quota`)
-36. create an xfs partition on a loop file image, set a label, mount it manually, and mount it automatically in /etc/fstab with the label (`dd if=/dev/zero of=imgfile bs=1M count=100 ; losetup -f ; losetup /dev/loopX imgfile ; mkfs.xfs /dev/loopX ; man xfs_admin`)
-37. add quotas to the xfs partition for user1, check the quotas with `dd` (`man xfs_quota`)
+26. search in _/var/log_ for the user who tried the 'sudo' command without permission
+30. grant **user1** with root privileges with no password, and add **user2** to the **sudoers** group
+31. set the number of processes **user3** can run to infinity
+32. switch the system to start at *runlevel 3* (**multi-user.target** in systemd), then switch back to *runlevel 5* (**graphical.target**). WARNING: NEVER 0 or 6
+33. create a service **myservice** from scratch that writes the date and time in */tmp/myservice.txt* both when it starts and when it stops (maybe `sleep 5` in between)
+34. create an **ext4** partition on a loop file image, set a label, mount it manually, and mount it automatically in /etc/fstab with the label (`dd if=/dev/zero of=imgfile bs=1M count=100 ; losetup -f ; losetup /dev/loopX imgfile ; mkfs.ext4 /dev/loopX ; man tune2fs`)
+35. add quotas to the ext4 partition for **user1**, check the quotas with `dd ... of=somefileX` (`man quota`)
+36. create an **xfs** partition on a loop file image, set a label, mount it manually, and mount it automatically in */etc/fstab* with the label (`dd if=/dev/zero of=imgfile bs=1M count=100 ; losetup -f ; losetup /dev/loopX imgfile ; mkfs.xfs /dev/loopX ; man xfs_admin`)
+37. add quotas to the **xfs** partition for **user1**, check the quotas with `dd` (`man xfs_quota`)
 
 ## Networking
 35. run an http local website **mysite.com** at _/var/www/mysite/index.html_ on **port 54321** (changes in _/etc/hosts_, _/etc/apache2/apache2.conf_, _/etc/apache2/ports.conf_, _/etc/apache2/sites-available/mysite_, and _/etc/apache2/sites-enabled/mysite_ symlink. See for example https://youtu.be/KP5F1Leu8S8). Check with `lynx -dump localhost:54321` and `lynx -dump mysite.com`
