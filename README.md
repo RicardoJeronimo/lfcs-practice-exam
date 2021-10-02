@@ -3,28 +3,28 @@ The script creates files to be used for the exercises at the end in comments:
 # Exercises
 
 ## Archives
-1. create a .tar.gz archive of ./playground/filepool and put it in ./playground/archives
-2. create a .tar.bzip2 archive of ./playground/filepool and put it in ./playground/archives
-3. create a .tar.xz archive of ./playground/filepool and put it in ./playground/archives
-4. create a .cpio archive of ./playground/filepool and put it in ./playground/archives
-5. extract the .tar.gz archive in ./playground/extract/, then compare the content of ./playground/extract with ./playground/filepool. Delete the content of ./playground/extract
-6. extract the .tar.bzip2 archive in ./playground/extract/, then compare the content of ./playground/extract with ./playground/filepool. Delete the content of ./playground/extract
-7. extract the .tar.xz archive in ./playground/extract/, then compare the content of ./playground/extract with ./playground/filepool. Delete the content of ./playground/extract
-8. extract the .cpio archive in ./playground/extract/, then compare the content of ./playground/extract with ./playground/filepool. Leave the content of ./playground/extract to backup the ./playground/filepool directory
+1. create a **.tar.gz** archive of _./playground/filepool_ and put it in _./playground/archives_
+2. create a **.tar.bzip2** archive of _./playground/filepool_ and put it in _./playground/archives_
+3. create a **.tar.xz** archive of _./playground/filepool_ and put it in _./playground/archives_
+4. create a **.cpio** archive of _./playground/filepool_ and put it in _./playground/archives_
+5. extract the **.tar.gz** archive in _./playground/extract/_, then compare the content of _./playground/extract_ with _./playground/filepool_. Delete the content of _./playground/extract_
+6. extract the **.tar.bzip2** archive in _./playground/extract/_, then compare the content of _./playground/extract_ with _./playground/filepool_. Delete the content of _./playground/extract_
+7. extract the **.tar.xz** archive in _./playground/extract/_, then compare the content of _./playground/extract_ with _./playground/filepool_. Delete the content of ./playground/extract
+8. extract the **.cpio** archive in ./playground/extract/, then compare the content of _./playground/extract with _./playground/filepool_. Leave the content of ./playground/extract to backup the _./playground/filepool_ directory
 
 ## Find and files
-9. move all the files owned by user1 in ./playground/filepool to ./playground/user1
-10. compare the directories ./playground/user1 and ./playground/user1ref
-11. move all the files in ./playground/filepool with spaces in there name in ./playground/filenameswithspaces, keeping ownership, with the `rsync --remove-source-files` command only (`find ... -exec rsync -v -o -g ...`). Copy them back to ./playground/filepool with the find/xargs commands keeping the ownership too (`find ... -print0 | xargs -0 -I{} cp -a {} ...`)
-12. find all the files in ./playground/filepool with no user, write the result in ./playground/listfile.txt
-13. keeping the ownership, copy the files from user2 in ./playground/filepool to ./playground/user2 which have permission 1246
-14. compare the directories ./playground/user2 and ./playground/user2ref
-15. find all the files in ./playground/filepool owned by user3 and newer than ./playground/filepool/user3_file2_suga0000.txt
-16. make the list of all the files in ./playground/filepool owned by user3 and overwrite the file ./playground/user1ref/fileadded.txt with the list (check the lsattr attributes)
-17. find all the files in ./playground/filepool owned by user3 which are executable by somebody (their owner, or their group, or anybody else)
-18. remove all the sticky bits of files in ./playground/filepool owned by user3
-19. set all the setuid bit of files in ./playground/filepool owned by user3. Check the 'resisting' files with lsattr.
-20. change the ACL on file ./playground/testacl.txt to give read privilege to user1, write privilege to user2
+9. move all the files owned by **user1** in _./playground/filepool_ to _./playground/user1_
+10. compare the directories _./playground/user1_ and _./playground/user1ref_
+11. move all the files in _./playground/filepool_ with spaces in there name in _./playground/filenameswithspaces_, keeping ownership, with the `rsync --remove-source-files` command only (`find ... -exec rsync -v -o -g ...`). Copy them back to _./playground/filepool_ with the `find`/`xargs` commands keeping the ownership too (`find ... -print0 | xargs -0 -I{} cp -a {} ...`)
+12. find all the files in _./playground/filepool_ with no user, write the result in _./playground/listfile.txt_
+13. keeping the ownership, copy the files from **user2** in _./playground/filepool_ to _./playground/user2_ which have permission 1246
+14. compare the directories _./playground/user2_ and _./playground/user2ref_
+15. find all the files in _./playground/filepool_ owned by **user3** and newer than _./playground/filepool/user3_file2_suga0000.txt_
+16. make the list of all the files in _./playground/filepool_ owned by user3 and overwrite the file _./playground/user1ref/fileadded.txt_ with the list (check the `lsattr` attributes)
+17. find all the files in _./playground/filepool_ owned by **user3** which are executable by somebody (their owner, or their group, or anybody else)
+18. remove all the sticky bits of files in _./playground/filepool_ owned by **user3**
+19. set all the setuid bit of files in _./playground/filepool_ owned by **user3**. Check the resisting files with `lsattr`.
+20. change the ACL on file _./playground/testacl.txt_ to give read privilege to **user1**, write privilege to **user2**
 
 ## Groups and users
 21. create a group grp1, then add user1, user2, user3 to this group all in one command (`man gpasswd`)
