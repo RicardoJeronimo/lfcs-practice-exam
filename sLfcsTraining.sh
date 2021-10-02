@@ -37,12 +37,9 @@ do
 
                     for perm4 in $(seq 2 2 $maxseq) # other permission
                     do
-                        echo "Creating file ${user}_file${i}_suga${perm1}${perm2}${perm3}${perm4}.txt"
+                        #echo "Creating file ${user}_file${i}_suga${perm1}${perm2}${perm3}${perm4}.txt"
                         echo ${user}file${i}s${perm1}u${perm2}g${perm3}a${perm4} > ${user}_file${i}_suga${perm1}${perm2}${perm3}${perm4}.txt
-			echo "${perm1}${perm2}${perm3}${perm4} ${user}_file${i}_suga${perm1}${perm2}${perm3}${perm4}.txt"
-			chmod a+s ./${user}_file${i}_suga${perm1}${perm2}${perm3}${perm4}.txt
-                        chmod ${perm1}${perm2}${perm3}${perm4} ./${user}_file${i}_suga${perm1}${perm2}${perm3}${perm4}.txt
-                        chmod ${perm1}${perm2}${perm3}${perm4} ./${user}_file${i}_suga${perm1}${perm2}${perm3}${perm4}.txt
+			            #echo "${perm1}${perm2}${perm3}${perm4} ${user}_file${i}_suga${perm1}${perm2}${perm3}${perm4}.txt"
                         chmod ${perm1}${perm2}${perm3}${perm4} ./${user}_file${i}_suga${perm1}${perm2}${perm3}${perm4}.txt
                         chown $user:$user ${user}_file${i}_suga${perm1}${perm2}${perm3}${perm4}.txt
 			ls -aFhl ${user}_file${i}_suga${perm1}${perm2}${perm3}${perm4}.txt
@@ -108,7 +105,7 @@ if [ ! -e ./playground/user2ref ]; then
     mkdir -p ./playground/user2ref
 fi
 
-find ./playground/filepool -perm 1234 -user user2 -exec cp -a {} ./playground/user2ref \;
+find ./playground/filepool -perm 1246 -user user2 -exec cp -a {} ./playground/user2ref \;
 
 if [ ! -e ./playground/filepool/archives ]; then
     echo 'create ./playground/filepool/archives'
@@ -153,7 +150,7 @@ fi
 # 10. compare the directories ./playground/user1 and ./playground/user1ref
 # 11. move all the files in ./playground/filepool with spaces in there name in ./playground/filenameswithspaces, keeping ownership, with the `rsync --remove-source-files` command only (`find ... -exec rsync -v -o -g ...`). Copy them back to ./playground/filepool with the find/xargs commands keeping the ownership too (`find ... -print0 | xargs -0 -I{} cp -a {} ...`)
 # 12. find all the files in ./playground/filepool with no user, write the result in ./playground/listfile.txt
-# 13. keeping the ownership, copy the files from user2 in ./playground/filepool to ./playground/user2 which have permission 1234
+# 13. keeping the ownership, copy the files from user2 in ./playground/filepool to ./playground/user2 which have permission 1246
 # 14. compare the directories ./playground/user2 and ./playground/user2ref
 # 15. find all the files in ./playground/filepool owned by user3 and newer than ./playground/filepool/user3_file2_suga0000.txt
 # 16. make the list of all the files in ./playground/filepool owned by user3 and overwrite the file ./playground/user1ref/fileadded.txt with the list (check the lsattr attributes)
