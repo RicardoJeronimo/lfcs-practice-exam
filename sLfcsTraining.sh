@@ -6,6 +6,8 @@ read -p "Run in say ~/some_dir_on_purpose/. Users user1, user2, user3, and user4
 
 if [ ! -e ./playground/filepool ]; then
     mkdir -p ./playground/filepool
+    chmod 0777 ./playground
+    chmod 0777 ./playground/filepool
 fi
 
 cd ./playground/filepool
@@ -103,33 +105,39 @@ chmod 600 ./playground/testacl.txt
 if [ ! -e ./playground/user2ref ]; then
     echo 'create ./playground/user2ref'
     mkdir -p ./playground/user2ref
+    chmod 0777 ./playground/user2ref
 fi
 
 find ./playground/filepool -perm 1246 -user user2 -exec cp -a {} ./playground/user2ref \;
 
-if [ ! -e ./playground/filepool/archives ]; then
-    echo 'create ./playground/filepool/archives'
-    mkdir -p ./playground/filepool/archives
-fi
+#if [ ! -e ./playground/filepool/archives ]; then
+#    echo 'create ./playground/filepool/archives'
+#    mkdir -p ./playground/filepool/archives
+#    chmod 0777 ./playground/filepool/archives
+#fi
 
 if [ ! -e ./playground/extract ]; then
     echo 'create ./playground/extract'
     mkdir -p ./playground/extract
+    chmod 0777 ./playground/extract
 fi
 
 if [ ! -e ./playground/filenameswithspaces ]; then
     echo 'create ./playground/filenameswithspaces'
     mkdir -p ./playground/filenameswithspaces
+    chmod 0777 ./playground/filenameswithspaces
 fi
 
 if [ ! -e ./playground/user2 ]; then
     echo 'create ./playground/user2'
     mkdir -p ./playground/user2
+    chmod 0777 ./playground/user2
 fi
 
 if [ ! -e ./playground/archives ]; then
     echo 'create ./playground/archives'
     mkdir -p ./playground/archives
+    chmod 0777 ./playground/archives
 fi
 
 
