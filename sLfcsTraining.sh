@@ -69,6 +69,17 @@ done
 
 cd ../..
 
+if [ ! -e ./playground/difffiles ]; then
+   echo 'create ./playground/difffiles'
+   mkdir -p ./playground/difffiles
+   chmod 0777 ./playground/difffiles
+   echo "text" > ./playground/difffiles/file001.txt
+   for i in $(seq -f "%03g" 2 100) ; do cp ./playground/difffiles/file001.txt "./playground/difffiles/file${i}.txt" ; done
+   echo "other text" > ./playground/difffiles/file010.txt
+   ls ./playground/difffiles
+fi
+
+
 if [ ! -e ./playground/user1ref ]; then
     echo 'create ./playground/user1ref'
     mkdir -p ./playground/user1ref
