@@ -19,7 +19,7 @@ The script creates files to be used for the exercises at the end in comments:
 12. find all the files in _./playground/filepool_ with no user, write the list in _./playground/listfile.txt_.
 13. keeping the ownership, copy the files owned by **user2** in _./playground/filepool_ to _./playground/user2_ which have permission 1246.
 14. compare the directories _./playground/user2_ and _./playground/user2ref_ (`diff -q`).
-15. find all the files in _./playground/filepool_ owned by **user3** and newer than _./playground/filepool/user3_file2_suga0000.txt_.
+15. find all the files in _./playground/filepool_ owned by **user3** and newer than _./playground/filepool/user3_file2_suga1222.txt_.
 16. make the list of all the files in _./playground/filepool_ owned by user3 and overwrite the file _./playground/user1ref/fileadded.txt_ with the list (check the `lsattr` attributes).
 17. find all the files in _./playground/filepool_ owned by **user3** which are executable by somebody (their owner, or their group, or anybody else).
 18. remove all the sticky bits of files in _./playground/filepool_ owned by **user3**.
