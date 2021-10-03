@@ -122,9 +122,9 @@ if [ ! -e ./playground/filenameswithspaces ]; then
     mkdir -p ./playground/filenameswithspaces
 fi
 
-if [ ! -e ./playground/user1 ]; then
-    echo 'create ./playground/user1'
-    mkdir -p ./playground/user1
+if [ ! -e ./playground/user2 ]; then
+    echo 'create ./playground/user2'
+    mkdir -p ./playground/user2
 fi
 
 if [ ! -e ./playground/archives ]; then
