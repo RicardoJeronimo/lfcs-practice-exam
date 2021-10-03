@@ -13,7 +13,7 @@ The script creates files to be used for the exercises at the end in comments:
 8. extract the **.cpio** archive in ./playground/extract/, then compare the content of _./playground/extract with _./playground/filepool_. Leave the content of ./playground/extract to backup the _./playground/filepool_ directory
 
 ## Find and files
-9. move all the files owned by **user1** in _./playground/filepool_ to _./playground/user1_
+9. move all the files owned by **user1** in _./playground/filepool_ to _./playground/user1_. Check the resisting files with `lsattr`.
 10. compare the directories _./playground/user1_ and _./playground/user1ref_
 11. move all the files in _./playground/filepool_ with spaces in their name in _./playground/filenameswithspaces_, keeping ownership, with the `rsync --remove-source-files` command only (`find ... -exec rsync -v -o -g ...`). Copy them back to _./playground/filepool_ with the `find | xargs` commands keeping the ownership too (`find ... -print0 | xargs -0 -I{} cp -a {} ...`)
 12. find all the files in _./playground/filepool_ with no user, write the list in _./playground/listfile.txt_

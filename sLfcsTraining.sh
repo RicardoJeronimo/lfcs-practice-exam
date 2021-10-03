@@ -82,7 +82,7 @@ fi
 echo 'file added' > ./playground/user1ref/fileadded.txt
 chattr +a ./playground/user1ref/fileadded.txt
 find ./playground/filepool -user user1 -exec cp -a {} ./playground/user1ref \;
-echo 'file modified' > ./playground/user1ref/user1_file10_suga0000.txt
+echo 'file modified' > ./playground/user1ref/user1_file1_suga1222.txt
 #echo $(ls ./playground/user1ref)
 
 touch ./playground/testsetuid.txt
@@ -110,12 +110,6 @@ fi
 
 find ./playground/filepool -perm 1246 -user user2 -exec cp -a {} ./playground/user2ref \;
 
-#if [ ! -e ./playground/filepool/archives ]; then
-#    echo 'create ./playground/filepool/archives'
-#    mkdir -p ./playground/filepool/archives
-#    chmod 0777 ./playground/filepool/archives
-#fi
-
 if [ ! -e ./playground/extract ]; then
     echo 'create ./playground/extract'
     mkdir -p ./playground/extract
@@ -126,6 +120,12 @@ if [ ! -e ./playground/filenameswithspaces ]; then
     echo 'create ./playground/filenameswithspaces'
     mkdir -p ./playground/filenameswithspaces
     chmod 0777 ./playground/filenameswithspaces
+fi
+
+if [ ! -e ./playground/user1 ]; then
+   echo 'create ./playground/user1'
+   mkdir -p ./playground/user1
+   chmod 0777 ./playground/user1
 fi
 
 if [ ! -e ./playground/user2 ]; then
