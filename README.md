@@ -40,7 +40,7 @@ The script creates files to be used for the exercises at the end in comments:
 32. switch the system to start at *runlevel 3* (**multi-user.target** in systemd), then switch back to *runlevel 5* (**graphical.target**). WARNING: NEVER 0 or 6
 33. create a service **myservice** from scratch that writes the date and time in */tmp/myservice.txt* both when it starts and when it stops (maybe `sleep 5` in between)
 34. create an **ext4** partition on a loop file image, set a label, mount it manually, and mount it automatically in */etc/fstab* with the label (`dd if=/dev/zero of=imgfile bs=1M count=100 ; losetup -f ; losetup /dev/loopX imgfile ; mkfs.ext4 /dev/loopX ; man tune2fs`)
-35. add quotas to the ext4 partition for **user1**, check the quotas with `dd ... of=somefileX` (`man quota`)
+35. add quotas to the __ext4__ partition for **user1**, check the quotas with `dd ... of=somefileX` (`man quota`)
 36. create an **xfs** partition on a loop file image, set a label, mount it manually, and mount it automatically in */etc/fstab* with the label (`dd if=/dev/zero of=imgfile bs=1M count=100 ; losetup -f ; losetup /dev/loopX imgfile ; mkfs.xfs /dev/loopX ; man xfs_admin`)
 37. add quotas to the **xfs** partition for **user1**, check the quotas with `dd` (`man xfs_quota`)
 
