@@ -32,7 +32,7 @@ The script creates files to be used for the exercises at the end in comments:
 23. make a directory _./playground/grp1dir_ owned by **grp1** and activate the **getuid** bit on it. Check the **getuid** bit by creating a file in the directory.
 24. remove **user2** from group **grp1**, add it again with a different command than previously (`usermod`).
 25. run _./playground/testsetuid.out_ as **user1** <span style="text-decoration: underline">in its directory</span>, then as **user2**. Set the **setuid** to 1 and then run it again as **user2**.
-26. remove the execution privileges on file _./playground/testsetuid.out_ to all users. Change the ACL on file _./playground/testsetuid.out_ to give execution privilege to **grp1**, and then execute it with **user3**.
+26. remove the execution privileges on file _./playground/testsetuid.out_ to other users. Change the ACL on file _./playground/testsetuid.out_ to give execution privilege to **grp1**, and then execute it with **user3** (beware of the mask: `setfacl -m m::x ...`).
 
 ## System
 1. search in _/var/log_ for the user who tried the 'sudo' command without permission.
