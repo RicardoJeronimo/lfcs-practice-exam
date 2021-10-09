@@ -56,3 +56,42 @@ The script creates files to be used for the exercises at the end in comments:
 ## End
 1. clean everything: `sudo find -type f -exec chattr -i {} \+ ; sudo rm -rf playground`.
 2. repeat until confident.
+
+-----
+
+# Other resources
+## Find
+ - https://geekflare.com/linux-find-commands/
+ - https://www.tecmint.com/35-practical-examples-of-linux-find-command/
+
+## Awk
+- http://evc-cit.info/cit052/awk_tutorial.html
+
+## Other commands
+- http://evc-cit.info/cit052/
+- remaking the workshop archive manually: https://www.csc.fi/documents/200270/272439/Linux-command-line-exercises_Linux%2BCSC-Quick-Reference.pdf/0d3d1813-238a-4aed-a1e3-1a3d57a243f3
+- https://devconnected.com/30-linux-processes-exercises-for-sysadmins/
+
+## AppArmor
+- https://medium.com/information-and-technology/so-what-is-apparmor-64d7ae211ed
+
+## Xfs labeling and quotas
+- https://medium.com/shehuawwal/how-to-label-ext4-and-xfs-file-system-in-linux-356f56e4cae2
+- https://www.golinuxcloud.com/configure-enable-disable-xfs-quota-grace-time/
+- non xfs quotas: http://www.yolinux.com/TUTORIALS/LinuxTutorialQuotas.html
+
+## Virsh undefine
+- https://bobcares.com/blog/virsh-command-to-delete-a-vm/
+- https://serverfault.com/questions/363674/managing-qcow2-images-with-virsh
+
+## Run a command as another user
+- https://www.cyberciti.biz/open-source/command-line-hacks/linux-run-command-as-different-user/
+
+## Forgot an docker option
+- https://www.digitalocean.com/community/questions/how-to-adjust-docker-container-run-options
+
+## Password set to an empty string
+- https://unix.stackexchange.com/questions/192945/user-without-a-password-how-can-one-login-into-that-account-from-a-non-root-ac
+
+## Working with files in C (for the script)
+- https://www.programiz.com/c-programming/c-file-input-output
