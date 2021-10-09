@@ -87,11 +87,11 @@ The script creates files to be used for the exercises at the end in comments:
 ## Run a command as another user
 - https://www.cyberciti.biz/open-source/command-line-hacks/linux-run-command-as-different-user/
 
-## Forgot an docker option
+## Forgot a docker option
 - https://www.digitalocean.com/community/questions/how-to-adjust-docker-container-run-options
 
 ## Password set to an empty string
 - https://unix.stackexchange.com/questions/192945/user-without-a-password-how-can-one-login-into-that-account-from-a-non-root-ac
 
-## Working with files in C (for the script)
+## Working with files in C (setuid for the script)
 - https://www.programiz.com/c-programming/c-file-input-output
