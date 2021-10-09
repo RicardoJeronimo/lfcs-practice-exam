@@ -21,13 +21,13 @@ The script creates files to be used for the exercises at the end in comments:
 14. compare the directories _./playground/user2_ and _./playground/user2ref_ (`diff -q`).
 15. find all the files in _./playground/filepool_ owned by **user3** and newer than _./playground/filepool/user3_file2_suga1222.txt_.
 16. make the list of all the files in _./playground/filepool_ owned by user3 and try to overwrite the file _./playground/user1ref/fileadded.txt_ with the list (check the `lsattr` attributes). Try to append the list.
-17. find all the files in _./playground/filepool_ owned by **user3** which are readable by somebody (their owner, or their group, or anybody else). Count these files and compare with the total number of files owned by **user3**. List the files missing.
+17. find all the files in _./playground/filepool_ owned by **user3** which are readable by somebody (their owner, or their group, or anybody else). Count these files and compare with the total number of files owned by **user3**. Long list the files missing to check.
 18. remove the sticky bit of files in _./playground/filepool_ owned by **user3**.
 19. set the setuid bit of files in _./playground/filepool_ owned by **user3**. With `find ... \! ...`, list the files which do not have the setuid bit activated. Check their attributes with `lsattr`.
 20. change the ACL on file _./playground/testacl.txt_ to give read privilege to **user1**, write privilege to **user2**. Remove the read privilege to __user1__.
 21. search in _./playground/difffiles/_ one file which is different from the others.
 22. define function `echoerr(){ python -c 'import os; os.write(1, b"ok\n"); os.write(2, b"error\n")';}`, execute it printing only the stdout (`echoerr 2> /dev/null`), then only the stderr, and then append both stdout and stderr to _./playground/user1ref/fileadded.txt_ using both syntaxes `>>& file` and `>> file 2>&1`.
-23. using `sed` print only the lines from 8 to 12 included in _./playground/phonenumber.txt_ in the terminal, still with `sed` remove lines 15 to the end of the file (`sed '15,??'`), using both `sed` without option `-E` and with the option print all the lines with a phone number (`[1-9]{3}-...`), using `sed` without option `-E` add parents around the area code (`xyz-` becomes `(xyz)-`) rewriting the file (option `-i`) and using `sed -E` remove the parents rewriting the file.
+23. using `sed` print only the lines from 8 to 12 included in _./playground/phonenumber.txt_ in the terminal, still with `sed` remove lines 15 to the end of the file (`sed -i '15,??'`), using both `sed` without option `-E` and with the option print all the lines with a phone number (`[1-9]{3}-...`), using `sed` without option `-E` add parents around the area code (`xyz-` becomes `(xyz)-`) rewriting the file (option `-i`) and using `sed -E` remove the parents rewriting the file.
 
 ## Groups and users
 1. create a group **grp1**, then add **user1**, **user2**, **user3** to this group all in one command (`man gpasswd`).
@@ -55,4 +55,4 @@ The script creates files to be used for the exercises at the end in comments:
 
 ## End
 1. clean everything: `sudo find -type f -exec chattr -i {} \+ ; sudo rm -rf playground`.
-2. repeat until done in less than 1 hour.
+2. repeat until confident.
