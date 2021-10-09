@@ -39,16 +39,16 @@ do
 
                     for perm4 in $(seq 2 2 $maxseq) # other permission
                     do
-                        #echo "Creating file ${user}_file${i}_suga${perm1}${perm2}${perm3}${perm4}.txt"
-                        echo ${user}file${i}s${perm1}u${perm2}g${perm3}a${perm4} > ${user}_file${i}_suga${perm1}${perm2}${perm3}${perm4}.txt
-                        #echo "${perm1}${perm2}${perm3}${perm4} ${user}_file${i}_suga${perm1}${perm2}${perm3}${perm4}.txt"
-                        chmod ${perm1}${perm2}${perm3}${perm4} ./${user}_file${i}_suga${perm1}${perm2}${perm3}${perm4}.txt
-                        chown $user:$user ${user}_file${i}_suga${perm1}${perm2}${perm3}${perm4}.txt
-			ls -aFhl ${user}_file${i}_suga${perm1}${perm2}${perm3}${perm4}.txt
+                        #echo "Creating file ${user}_file${i}_sugo${perm1}${perm2}${perm3}${perm4}.txt"
+                        echo ${user}file${i}s${perm1}u${perm2}g${perm3}a${perm4} > ${user}_file${i}_sugo${perm1}${perm2}${perm3}${perm4}.txt
+                        #echo "${perm1}${perm2}${perm3}${perm4} ${user}_file${i}_sugo${perm1}${perm2}${perm3}${perm4}.txt"
+                        chmod ${perm1}${perm2}${perm3}${perm4} ./${user}_file${i}_sugo${perm1}${perm2}${perm3}${perm4}.txt
+                        chown $user:$user ${user}_file${i}_sugo${perm1}${perm2}${perm3}${perm4}.txt
+			ls -aFhl ${user}_file${i}_sugo${perm1}${perm2}${perm3}${perm4}.txt
                         j=$((j+1))
                         if [[ $j -eq 10 ]]; then
                             j=0
-                            chattr +i ${user}_file${i}_suga${perm1}${perm2}${perm3}${perm4}.txt
+                            chattr +i ${user}_file${i}_sugo${perm1}${perm2}${perm3}${perm4}.txt
                         fi
                     done
                 done
@@ -93,7 +93,7 @@ fi
 echo 'file added' > ./playground/user1ref/fileadded.txt
 chattr +a ./playground/user1ref/fileadded.txt
 find ./playground/filepool -user user1 -exec cp -a {} ./playground/user1ref \;
-echo 'file modified' > ./playground/user1ref/user1_file1_suga1222.txt
+echo 'file modified' > ./playground/user1ref/user1_file1_sugo1222.txt
 #echo $(ls ./playground/user1ref)
 
 touch ./playground/testsetuid.txt
@@ -151,6 +151,21 @@ if [ ! -e ./playground/archives ]; then
     chmod 0777 ./playground/archives
 fi
 
+echoerr() {
+    python -c 'import os; os.write(1, b"ok\n"); os.write(2, b"error\n")'
+}
+
+for i in $(seq 1 20)
+do
+    if [ $i -ne 10 ]
+    then
+	phonenumber=${RANDOM:0:1}${RANDOM:0:1}${RANDOM:0:1}-${RANDOM:0:1}${RANDOM:0:1}${RANDOM:0:1}-${RANDOM:0:1}${RANDOM:0:1}${RANDOM:0:1}${RANDOM:0:1}
+	echo "Phone number #$i: " $phonenumber >> ./playground/phonenumbers.txt
+    else
+	echo "This line has no phone number" >> ./playground/phonenumbers.txt
+    fi
+done
+
 
 # Exercises
 
@@ -171,7 +186,7 @@ fi
 # 12. find all the files in ./playground/filepool with no user, write the result in ./playground/listfile.txt
 # 13. keeping the ownership, copy the files from user2 in ./playground/filepool to ./playground/user2 which have permission 1246
 # 14. compare the directories ./playground/user2 and ./playground/user2ref
-# 15. find all the files in ./playground/filepool owned by user3 and newer than ./playground/filepool/user3_file2_suga0000.txt
+# 15. find all the files in ./playground/filepool owned by user3 and newer than ./playground/filepool/user3_file2_sugo0000.txt
 # 16. make the list of all the files in ./playground/filepool owned by user3 and overwrite the file ./playground/user1ref/fileadded.txt with the list (check the lsattr attributes)
 # 17. find all the files in ./playground/filepool owned by user3 which are executable by somebody (their owner, or their group, or anybody else)
 # 18. remove all the sticky bits of files in ./playground/filepool owned by user3
