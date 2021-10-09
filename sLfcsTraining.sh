@@ -165,7 +165,7 @@ do
 	echo "This line has no phone number" >> ./playground/phonenumbers.txt
     fi
 done
-
+chmod 666 ./playground/phonenumbers.txt
 
 # Exercises
 
