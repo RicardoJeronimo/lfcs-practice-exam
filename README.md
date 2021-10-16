@@ -28,6 +28,7 @@ The script creates files to be used for the exercises at the end in comments:
 21. search in _./playground/difffiles/_ one file which is different from the others.
 22. define function `echoerr(){ python -c 'import os; os.write(1, b"ok\n"); os.write(2, b"error\n")';}`, execute it printing only the stdout (`echoerr 2> /dev/null`), then only the stderr, and then write|append both stdout and stderr to _./playground/stdfile.txt_ using both syntaxes `>>& file` and `>> file 2>&1`.
 23. using `sed` print only the lines from 8 to 12 included in _./playground/phonenumber.txt_ in the terminal, still with `sed` remove lines 15 to the end of the file (`sed -i '15,??'`), using both `sed` without option `-E` and with the option print all the lines with a phone number (`[1-9]{3}-...`), using `sed` without option `-E` add parents around the area code (`xyz-` becomes `(xyz)-`) rewriting the file (option `-i`) and using `sed -E` remove the parents rewriting the file. Print all the odd-numbered lines (example in `man sed`).
+24. find to which package the file `/etc/ssh/ssh_config` belongs.
 
 ## Groups and users
 1. create a group **grp1**, then add **user1**, **user2**, **user3** to this group all in one command (`man gpasswd`).
