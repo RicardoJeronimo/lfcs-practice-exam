@@ -21,7 +21,7 @@ The script creates files to be used for the exercises at the end in comments (th
 14. compare the directories _./playground/user2_ and _./playground/user2ref_ (`diff -q`).
 15. find all the files in _./playground/filepool_ owned by **user3** and newer than _./playground/filepool/user3_file2_suga1222.txt_.
 16. make the list of all the files in _./playground/filepool_ owned by user3 and try to overwrite the file _./playground/user1ref/fileadded.txt_ with the list (check the `lsattr` attributes). Try to append the list.
-17. find all the files in _./playground/filepool_ owned by **user3** which are readable by somebody (their owner, or their group, or anybody else). Count these files and compare with the total number of files owned by **user3**. Long list the files missing to check.
+17. find all the files in _./playground/filepool_ owned by **user3** which are readable by somebody (their owner, or their group, or anybody else). Count these files and compare with the total number of files owned by **user3**. Long list the missing files to check.
 18. remove the sticky bit of files in _./playground/filepool_ owned by **user3**.
 19. set the setuid bit of files in _./playground/filepool_ owned by **user3**. With `find ... \! ...` or `find ... -not ...`, list the files which do not have the setuid bit activated. Check their attributes with `lsattr`.
 20. change the ACL on file _./playground/testacl.txt_ to give read privilege to **user1**, write privilege to **user2**. Remove the read privilege to __user1__.
