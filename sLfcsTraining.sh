@@ -218,3 +218,42 @@ chmod 666 ./playground/phonenumbers.txt
 
 ## End. Repeat until done in less than 1 hour
 # 42. clean everything: `sudo find -type f -exec chattr -i {} \+ ; sudo rm -rf playground`
+
+#----- Gitlab version -----
+
+# Exercises
+
+## Archives
+#1. create a **.tar.gz** archive of _./playground/filepool_ and put it in _./playground/archives_.
+#2. create a **.tar.bzip2** archive of _./playground/filepool_ and put it in _./playground/archives_.
+#3. create a **.tar.xz** archive of _./playground/filepool_ and put it in _./playground/archives_.
+#4. create a **.cpio** archive of _./playground/filepool_ and put it in _./playground/archives_.
+#5. extract the **.tar.gz** archive in _./playground/extract/_, then compare the content of _./playground/extract_ with _./playground/filepool_. Delete the content of _./playground/extract_.
+#6. extract the **.tar.bzip2** archive in _./playground/extract/_, then compare the content of _./playground/extract_ with _./playground/filepool_. Delete the content of _./playground/extract_.
+#7. extract the **.tar.xz** archive in _./playground/extract/_, then compare the content of _./playground/extract_ with _./playground/filepool_. Delete the content of ./playground/extract.
+#8. extract the **.cpio** archive in ./playground/extract/, then compare the content of _./playground/extract with _./playground/filepool_. Leave the content of ./playground/extract to backup the _./playground/filepool_ directory.
+
+## Find and files
+#1. move all the files owned by **user1** in _./playground/filepool_ to _./playground/user1_. Check the resisting files with `lsattr`.
+#10. compare the directories _./playground/user1_ and _./playground/user1ref_.
+#11. move all the files in _./playground/filepool_ with spaces in their name in _./playground/filenameswithspaces_, keeping ownership, with the `rsync --remove-source-files` command only (`find -name "* *" -exec rsync -v -o -g --remove-source-files {} destdir/ \;`). Copy them back to _./playground/filepool_ with the `find | xargs` commands keeping ownership too (`find -name "* *" -print0 | xargs -0 -I{} cp -a {} destdir/`).
+#12. find all the files in _./playground/filepool_ with no user, write the list in _./playground/listfile.txt_.
+#13. keeping the ownership, copy the files owned by **user2** in _./playground/filepool_ to _./playground/user2_ which have permission 1246.
+#14. compare the directories _./playground/user2_ and _./playground/user2ref_ (`diff -q`).
+#15. find all the files in _./playground/filepool_ owned by **user3** and newer than _./playground/filepool/user3_file2_suga1222.txt_.
+#16. make the list of all the files in _./playground/filepool_ owned by user3 and try to overwrite the file _./playground/user1ref/fileadded.txt_ with the list (check the `lsattr` attributes). Try to append the list.
+#17. find all the files in _./playground/filepool_ owned by **user3** which are readable by somebody (their owner, or their group, or anybody else). Count these files and compare with the total number of files owned by **user3**. Long list the files missing to check.
+#18. remove the sticky bit of files in _./playground/filepool_ owned by **user3**.
+#19. set the setuid bit of files in _./playground/filepool_ owned by **user3**. With `find ... \! ...`, list the files which do not have the setuid bit activated. Check their attributes with `lsattr`.
+#20. change the ACL on file _./playground/testacl.txt_ to give read privilege to **user1**, write privilege to **user2**. Remove the read privilege to __user1__.
+#21. search in _./playground/difffiles/_ one file which is different from the others.
+#22. define function `echoerr(){ python -c 'import os; os.write(1, b"ok\n"); os.write(2, b"error\n")';}`, execute it printing only the stdout (`echoerr 2> /dev/null`), then only the stderr, and then write|append both stdout and stderr to _./playground/stdfile.txt_ using both syntaxes `>>& file` and `>> file 2>&1`.
+#23. using `sed` print only the lines from 8 to 12 included in _./playground/phonenumber.txt_ in the terminal, still with `sed` remove lines 15 to the end of the file (`sed -i '15,??'`), using both `sed` without option `-E` and with the option print all the lines with a phone number (`[1-9]{3}-...`), using `sed` without option `-E` add parents around the area code (`xyz-` becomes `(xyz)-`) rewriting the file (option `-i`) and using `sed -E` remove the parents rewriting the file. Print all the odd-numbered lines (example in `man sed`).
+#24. find to which package the file `/etc/ssh/ssh_config` belongs.
+
+## Groups and users
+#1. create a group **grp1**, then add **user1**, **user2**, **user3** to this group all in one command (`man gpasswd`, option `-m`).
+#23. make a directory _./playground/grp1dir_ owned by **grp1** and activate the **getuid** bit on it. Check the **getuid** bit by creating a file in the directory.
+#24. remove **user2** from group **grp1**, add it again with a different command than previously (`usermod`).
+#25. run _./playground/testsetuid.out_ as **user1** <span style="text-decoration: underline">in its directory</span>, then as **user2**. Set the **setuid** to 1 and then run it again as **user2**.
+#26. remove the execution privileges on file _./playground/testsetuid.out_ to other users and tr
