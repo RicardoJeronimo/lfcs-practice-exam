@@ -23,7 +23,7 @@ The script creates files to be used for the exercises at the end in comments:
 16. make the list of all the files in _./playground/filepool_ owned by user3 and try to overwrite the file _./playground/user1ref/fileadded.txt_ with the list (check the `lsattr` attributes). Try to append the list.
 17. find all the files in _./playground/filepool_ owned by **user3** which are readable by somebody (their owner, or their group, or anybody else). Count these files and compare with the total number of files owned by **user3**. Long list the files missing to check.
 18. remove the sticky bit of files in _./playground/filepool_ owned by **user3**.
-19. set the setuid bit of files in _./playground/filepool_ owned by **user3**. With `find ... \! ...`, list the files which do not have the setuid bit activated. Check their attributes with `lsattr`.
+19. set the setuid bit of files in _./playground/filepool_ owned by **user3**. With `find ... \! ...` or `find ... -not ...`, list the files which do not have the setuid bit activated. Check their attributes with `lsattr`.
 20. change the ACL on file _./playground/testacl.txt_ to give read privilege to **user1**, write privilege to **user2**. Remove the read privilege to __user1__.
 21. search in _./playground/difffiles/_ one file which is different from the others.
 22. define function `echoerr(){ python -c 'import os; os.write(1, b"ok\n"); os.write(2, b"error\n")';}`, execute it printing only the stdout (`echoerr 2> /dev/null`), then only the stderr, and then write|append both stdout and stderr to _./playground/stdfile.txt_ using both syntaxes `>>& file` and `>> file 2>&1`.
