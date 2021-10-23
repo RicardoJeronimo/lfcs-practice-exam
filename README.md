@@ -74,7 +74,7 @@ The script creates files to be used for the exercises at the end in comments (th
 16. format it in ext4: `mkfs -t ext4 /dev/mapper/crytoraid`.
 17. mount it at `/secret`: `mount /dev/mapper/cryptoraid /secret`.
 18. make a crypto file: `echo 'cryptotest' > /secret/cryptofile`.
-19. close the crypto partition, reopen it under a different name, and check the file: `cryptsetup luksClose crytoraid ; cryptsetup luksOpen /dev/mdY othername ; mount /dev/mapper/othername /secret ; cat /secret/cryptofile`.
+19. unmount the crypto partition, close it, reopen it under a different name, remount it and check the file: `umount /secret ; cryptsetup luksClose crytoraid ; cryptsetup luksOpen /dev/mdY othername ; mount /dev/mapper/othername /secret ; cat /secret/cryptofile`.
 1. make a swapfile and mount it, both manually and with `mount -a`.
 2. make a crypto swapfile and mount it, both manually and with `mount -a`.
 3. make a crypto partition on a simple image file and mount it, both manually and with `mount -a`.
