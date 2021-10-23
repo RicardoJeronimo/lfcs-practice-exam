@@ -55,18 +55,18 @@ The script creates files to be used for the exercises at the end in comments (th
 41. download an **Alpine iso** image with `wget`, run a virtual machine with command `virt-install` and the iso (examples at the end of the man page. Here is one: `virt-install --name tiny --connect qemu:///session --disk size=1 --cdrom alpine-standard-3.14.2-x86.iso`), clone it with `virt-clone`, list it with `virsh`, stop it with `virsh`, start it again, destroy it, list it again, and undefine it (look for 'undefine' in `man virsh`).
 
 ## Raid, Lvm, and crypto
-1. make four image files: `dd if=/dev/zero of=./imagefileX bs=1M count=100`.
+1. make four image files, potentially with different sizes: `dd if=/dev/zero of=./imagefileX bs=1M count=100`.
 2. link them to loop partitions: `losetup --find --show imagefileX`.
-2. format the partions for LVM: `fdisk /dev/loopX`, `p`, `n`, `enter`, `enter`, `enter`, `t`, `8e`, `w`.
+2. format the partitions for LVM: `fdisk /dev/loopX`, `p`, `n`, `enter`, `enter`, `enter`, `t`, `8e`, `w`.
 3. declare four physical volumes: `pvcreate /dev/loopXp1 /dev/loopX+1p1 /dev /dev/loopX+2p1 /dev/loopX+3p1`.
 4. make a virtual group with the four physical volumes: `vgcreate myvg /dev/loopX ...`.
-5. split the virtual group in two logical volumes with same size: `lvcreate myvg --name mylv1 -l 50%FREE ; lvcreate myvg --name mylv2 -l 100%FREE`.
+5. split the virtual group in four logical volumes with **same** size: `vgdisplay | grep myvg "Total PE" ; lvcreate myvg --name mylv1 -l n/4 ; lvcreate myvg --name mylv2 -l n/4 ; ...`.
 6. format the logical volumes for Raid: `fdisk /dev/myvg/mylvX`, `p`, `n`, `enter`, `enter`, `enter`, `t`, `fd`, `w`. It may take to run `partprobe` to refresh the partition table.
-7. make two Raid0 with each logical volumes: `mdadm --create /dev/mdX --level=0 --force --raid-devices=1 /dev/myvg/mylvX`
+7. make two Raid0 with the four logical volumes: `mdadm --create /dev/md0 --level=0 --raid-devices=2 /dev/myvg/mylv1 /dev/myvg/mylv2 ; ... /dev/md1 ...`
 8. format the Raid0 partitions for LVM: `fdisk /dev/mdX`, ..., `8e`.
 9. make a physical volume with each Raid0 partition: `pvcreate /dev/mdXp1 /dev/mdX+1p1`
 10. make a virtual group with the physical Raid0 volumes: `vgcreate myraidvg /dev/md0p1 /dev/md1p1`
-11. split the virtual group with two logical volumes of same size: `lvcreate myraidvg --name myraidlv1 -l 50%FREE ; lvcreate myraidvg --name myraidlv2 -l 100%FREE`.
+11. split the virtual group into two logical volumes of **same** size: `lvcreate myraidvg --name myraidlv1 -l 50%FREE ; lvcreate myraidvg --name myraidlv2 -l 100%FREE`.
 12. format the logical volumes for Raid: `fdisk /dev/myraidvg/myraidlvX`. It may take to run `partprobe` to refresh the partition table.
 13. make one Raid1 with the two logical volumes: `mdadm --create /dev/mdY --level=1  --raid-devices=2 /dev/myraidvg/myraidlv1 /dev/myraidvg/myraidlv2`.
 14. make a crypo partition with the Raid1 partition: `cryptsetup luksFormat /dev/mdY`.
@@ -75,8 +75,8 @@ The script creates files to be used for the exercises at the end in comments (th
 17. mount it at `/secret`: `mount /dev/mapper/cryptoraid /secret`.
 18. make a crypto file: `echo 'cryptotest' > /secret/cryptofile`.
 19. close the crypto partition, reopen it under a different name, and check the file: `cryptsetup luksClose crytoraid ; cryptsetup luksOpen /dev/mdY othername ; mount /dev/mapper/othername /secret ; cat /secret/cryptofile`.
-1. make a swapfile and mount it.
-2. make a crypto swapfile and mount it.
+1. make a swapfile and mount it, both manually and with `mount -a`.
+2. make a crypto swapfile and mount it, both manually and with `mount -a`.
 3. make a crypto partition on a simple image file and mount it, both manually and with `mount -a`.
 4. make a simple Raid1, and mount it both manually and with `mount -a`.
 5. make a simple logical volume, and mount it both manually and with `mount -a`.
