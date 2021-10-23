@@ -60,7 +60,7 @@ The script creates files to be used for the exercises at the end in comments (th
 2. format the partitions for LVM: `fdisk /dev/loopX`, `p`, `n`, `enter`, `enter`, `enter`, `t`, `8e`, `w`.
 3. declare four physical volumes: `pvcreate /dev/loopXp1 /dev/loopX+1p1 /dev /dev/loopX+2p1 /dev/loopX+3p1`.
 4. make a virtual group with the four physical volumes: `vgcreate myvg /dev/loopX ...`.
-5. split the virtual group in four logical volumes with **same** size: `vgdisplay | grep myvg "Total PE" ; lvcreate myvg --name mylv1 -l n/4 ; lvcreate myvg --name mylv2 -l n/4 ; ...`.
+5. split the virtual group in four logical volumes with **same** size: retrieve the number of physical extents (PEs) with `vgdisplay | grep myvg "Total PE"` and divide this number $n$ by $4$ to create the LVs with `lvcreate myvg --name mylv1 -l n/4 ; lvcreate myvg --name mylv2 -l n/4 ; ...`.
 6. format the logical volumes for Raid: `fdisk /dev/myvg/mylvX`, `p`, `n`, `enter`, `enter`, `enter`, `t`, `fd`, `w`. It may take to run `partprobe` to refresh the partition table.
 7. make two Raid0 with the four logical volumes: `mdadm --create /dev/md0 --level=0 --raid-devices=2 /dev/myvg/mylv1 /dev/myvg/mylv2 ; ... /dev/md1 ...`
 8. format the Raid0 partitions for LVM: `fdisk /dev/mdX`, ..., `8e`.
