@@ -66,7 +66,7 @@ The script creates files to be used for the exercises at the end in comments (th
 8. format the Raid0 partitions for LVM: `fdisk /dev/mdX`, ..., `8e`.
 9. make a physical volume with each Raid0 partition: `pvcreate /dev/mdXp1 /dev/mdX+1p1`
 10. make a virtual group with the physical Raid0 volumes: `vgcreate myraidvg /dev/md0p1 /dev/md1p1`
-11. split the virtual group into two logical volumes of **same** size: `lvcreate myraidvg --name myraidlv1 -l 50%FREE ; lvcreate myraidvg --name myraidlv2 -l 100%FREE`.
+11. split the virtual group into two logical volumes of same size: `lvcreate myraidvg --name myraidlv1 -l 50%FREE ; lvcreate myraidvg --name myraidlv2 -l 100%FREE`.
 12. format the logical volumes for Raid: `fdisk /dev/myraidvg/myraidlvX`. It may take to run `partprobe` to refresh the partition table.
 13. make one Raid1 with the two logical volumes: `mdadm --create /dev/mdY --level=1  --raid-devices=2 /dev/myraidvg/myraidlv1 /dev/myraidvg/myraidlv2`.
 14. make a crypo partition with the Raid1 partition: `cryptsetup luksFormat /dev/mdY`.
