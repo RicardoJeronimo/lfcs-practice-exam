@@ -16,7 +16,7 @@ The script creates files to be used for the exercises at the end in comments (th
 ## Find and files
 1. move all the files owned by **user1** in _./playground/filepool_ to _./playground/user1_. Check the resisting files with `lsattr`.
 10. compare the directories _./playground/user1_ and _./playground/user1ref_.
-11. move all the files in _./playground/filepool_ with spaces in their name in _./playground/filenameswithspaces_, keeping ownership, with the `rsync --remove-source-files` command only (`find -name "* *" -exec rsync -v -o -g --remove-source-files {} destdir/ \;`). Copy them back to _./playground/filepool_ with the `find | xargs` commands keeping ownership too (`find -name "* *" -print0 | xargs -0 -I{} cp -a {} destdir/`).
+11. move all the files in _./playground/filepool_ with spaces in their names in _./playground/filenameswithspaces_, keeping ownership, with the `rsync --remove-source-files` command only (`find -name "* *" -exec rsync -v -o -g --remove-source-files {} destdir/ \;`). Copy them back to _./playground/filepool_ with the `find | xargs` commands keeping ownership too (`find -name "* *" -print0 | xargs -0 -I{} cp -a {} destdir/`).
 12. find all the files in _./playground/filepool_ with no user, write the list in _./playground/listfile.txt_.
 13. keeping the ownership, copy the files owned by **user2** in _./playground/filepool_ to _./playground/user2_ which have permission 1246.
 14. compare the directories _./playground/user2_ and _./playground/user2ref_ (`diff -q`).
