@@ -7,7 +7,7 @@ The script creates files to be used for the exercises at the end in comments (th
 2. create a **.tar.bzip2** archive of _./playground/filepool_ and put it in _./playground/archives_.
 3. create a **.tar.xz** archive of _./playground/filepool_ and put it in _./playground/archives_.
 4. create a **.cpio** archive of _./playground/filepool_ and put it in _./playground/archives_.
-5. list the files in the files in the **.tar.gz** archive.
+5. list the files in the **.tar.gz** archive.
 5. extract the **.tar.gz** archive in _./playground/extract/_, then compare the content of _./playground/extract_ with _./playground/filepool_. Delete the content of _./playground/extract_.
 6. extract the **.tar.bzip2** archive in _./playground/extract/_, then compare the content of _./playground/extract_ with _./playground/filepool_. Delete the content of _./playground/extract_.
 7. extract the **.tar.xz** archive in _./playground/extract/_, then compare the content of _./playground/extract_ with _./playground/filepool_. Delete the content of ./playground/extract.
