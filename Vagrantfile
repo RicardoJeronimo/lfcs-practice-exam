@@ -26,6 +26,7 @@ Vagrant.configure("2") do |config|
 	
     home.vm.provision "Home", type: "ansible" do |ansible|
       ansible.playbook = "roles/home.yml"
+	  ansible.raw_ssh_args = "-C -o ControlMaster=no -o ControlPersist=60s -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
     end
   end
   
@@ -38,6 +39,7 @@ Vagrant.configure("2") do |config|
 	
     server1.vm.provision "Server1", type: "ansible" do |ansible|
       ansible.playbook = "roles/server1.yml"
+	  ansible.raw_ssh_args = "-C -o ControlMaster=no -o ControlPersist=60s -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
     end
   end
   
@@ -49,7 +51,8 @@ Vagrant.configure("2") do |config|
     end
 	
     server2.vm.provision "Server2", type: "ansible" do |ansible|
-      ansible.playbook = "roles/server2.yml" 
+      ansible.playbook = "roles/server2.yml"
+	  ansible.raw_ssh_args = "-C -o ControlMaster=no -o ControlPersist=60s -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
     end
   end
 end
