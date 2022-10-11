@@ -1,8 +1,9 @@
-* The purpose of this project is to provide a practice environment to use in studying for the Linux Foundations Certified Systems Adminstrator Exam
+The purpose of this project is to provide a practice environment to use in studying for the Linux Foundations Certified Systems Adminstrator Exam
 
-# Prerequisites
+Prerequisites
+-----------------
 You need the following installed on your Mac, Windows or Linux computer:
-* Ansbile
+* Ansible
 * VirtualBox
 
 
@@ -25,3 +26,33 @@ You need the following installed on your Mac, Windows or Linux computer:
   | netstat      | net-tools              |
   | semanage     | policycoreutils-python |
   | traceroute   | traceroute             |
+
+
+Instructions
+-----------------
+### Linux
+- Clone the repository:
+```
+git clone https://github.com/RicardoJeronimo/lfcs-practice-exam
+```
+- Run Vagrant:
+```
+vagrant up
+```
+
+### Windows
+- Clone the repository inside your Cygwin user's home directory
+```
+git clone https://github.com/RicardoJeronimo/lfcs-practice-exam
+```
+- Copy scripts to their destination
+```
+cp cygwin/ansible-playbook.bat C:/cygwin64
+cp cygwin/ansible-playbook-winpath.sh C:/cygwin64/usr/local/bin
+```
+- Edit the aforementioned files and change the Cygwin path variables if necessary
+- Add `C:\cygwin64\ansible-playbook.bat` to your Windows PATH
+- Run Vagrant:
+```
+vagrant up
+```
