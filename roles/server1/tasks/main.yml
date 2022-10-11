@@ -29,12 +29,11 @@
     name: MySQL-python
     state: present
 
-- name: Enable and restart MaraiDB
+- name: Enable and restart MariaDB
   systemd:
     name: mariadb
     enabled: yes
     state: started 
-
 
 - name: Added MySQL user root@'%'
   mysql_user:

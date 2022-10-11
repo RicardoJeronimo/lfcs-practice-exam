@@ -2,7 +2,7 @@
 - name: Configure Server1 server
   hosts: server1
   gather_facts: no
-  become:  yes
+  become: yes
 
   roles:
     - common
