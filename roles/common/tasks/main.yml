@@ -11,6 +11,9 @@
     - policycoreutils-python
     - traceroute
     - epel-release
+    - vim
+    - mdadm
+    - lvm
 
 - name: Configure /etc/hosts
   lineinfile:
