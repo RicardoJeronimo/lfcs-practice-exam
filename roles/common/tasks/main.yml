@@ -13,7 +13,7 @@
     - epel-release
     - vim
     - mdadm
-    - lvm
+    - lvm2
 
 - name: Configure /etc/hosts
   lineinfile:
