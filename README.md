@@ -1,3 +1,5 @@
+Cloned from https://gitlab.com/thomasbb-group/lfcs-training
+
 The script creates files to be used for the exercises at the end in comments (thanks to u/7lawa for his feedback):
 
 # Exercises
