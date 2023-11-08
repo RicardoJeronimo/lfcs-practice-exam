@@ -1,0 +1,9 @@
+[Unit]
+Description=Test service
+
+[Service]
+ExecStart=bash -c '/usr/bin/echo "start: $(date)" >> /tmp/myservice.txt ; sleep 5'
+ExecStop=bash -c '/usr/bin/echo "stop: $(date)" >> /tmp/myservice.txt'
+
+[Install]
+WantedBy=multi-user.target
