@@ -1,0 +1,11 @@
+[Unit]
+Description=Timer for myservice
+Requires=myservice.service
+
+[Timer]
+Unit=myservice.service
+OnCalendar=*-*-* *:*:10
+
+[Install]
+WantedBy=timers.target
+
